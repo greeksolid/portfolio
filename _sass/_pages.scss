@@ -1,0 +1,25 @@
+// Place all the styles related to the static_pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.hero{
+
+    h1{
+        // font-size: 121.5px;
+        font-size: 5.063em;
+        // color: $lightgold;
+        // background-color: $orange;
+        text-transform: uppercase;
+        color: $browngold;
+        font-weight: uppercase;
+    }
+}
+
+    .title{
+        border-bottom: 3px solid $lightgold;
+    }
+
+    .web{
+        // font-size: 2em;
+    }
+

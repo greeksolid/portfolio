@@ -1,52 +1,187 @@
 ---
-# Only the main Sass file needs front matter (the dashes are enough)
+# Front matter comment to ensure Jekyll properly reads file.
 ---
-@charset "utf-8";
 
+/********** 
+ Imports
+**********/
+@import 'variables';
+@import 'pages';
 
+/********** 
+Boilerplate Code
+**********/
 
-// Our variables
-$base-font-family: Helvetica, Arial, sans-serif;
-$base-font-size:   16px;
-$small-font-size:  $base-font-size * 0.875;
-$base-line-height: 1.5;
+*{
+    margin: 0;
+    padding: 0;
+}
 
-$spacing-unit:     30px;
+*, *:before, *:after {
+  box-sizing: inherit;
+}
 
-$text-color:       #111;
-$background-color: #fdfdfd;
-$brand-color:      #2a7ae2;
+html{
+    box-sizing: border-box;
+    font-size: 16px;
+}
 
-$grey-color:       #828282;
-$grey-color-light: lighten($grey-color, 40%);
-$grey-color-dark:  darken($grey-color, 25%);
+html.turbolinks-progress-bar::before {
+  background-color: $orange !important;
+  height: 5px !important;
+  z-index: 2000;
+}
 
-// Width of the content area
-$content-width:    800px;
+.clearfix:after {
+    content: " ";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+ 
+.clearfix {
+    display: inline-block;
+}
+ 
+html[xmlns] .clearfix {
+    display: block;
+}
+ 
+* html .clearfix {
+    height: 1%;
+}
 
-$on-palm:          600px;
-$on-laptop:        800px;
+/********** 
+Global
+**********/
 
+h1,h2,h3{
+    font-weight: 100;
+    line-height: 1.5em;
+    margin-bottom: 24px;
+    margin-bottom: 1.5rem;
+}
 
+h1{
+    font-size: 3.375em;
+}
 
-// Using media queries with like this:
-// @include media-query($on-palm) {
-//     .wrapper {
-//         padding-right: $spacing-unit / 2;
-//         padding-left: $spacing-unit / 2;
-//     }
-// }
-@mixin media-query($device) {
-    @media screen and (max-width: $device) {
-        @content;
-    }
+h2{
+    font-size: 2.25em;
+}
+
+h3{
+    font-size: 1.5em;
+}
+
+a{
+    text-decoration: none;
+    color: $darkbrown;
+    font-weight: 100;
+}
+
+p{
+  line-height: 1.5em;
+  margin-bottom: 36px;
 }
 
 
+/*******************
+Navigation
+*******************/
 
-// Import partials from `sass_dir` (defaults to `_sass`)
-@import
-        "base",
-        "layout",
-        "syntax-highlighting"
-;
+.nav-button{
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    width: 50px;
+    height: 50px;
+    z-index: 200;
+    cursor: pointer;
+}
+
+.check-icon, .close-icon, .nav-icon{
+    background-image: url("https://dl.dropboxusercontent.com/u/25093909/spritesheet.png");
+}
+.check-icon { background-position: -5px -0px; }
+.close-icon { background-position: -5px -55px; }
+.nav-icon   { background-position: -5px -110px; }
+
+nav{
+  background-color: $browngold;
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 100;
+  display: none;
+
+  ul{
+    width: 100%;
+    height: 730px;
+    padding: 0;
+    list-style-type: none;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -365px 0 0 -50%;
+  }
+  
+  a{
+    display: block;
+    font-family: 'Lato', sans-serif;
+    font-size: 7.594em;
+    text-transform: uppercase;
+    transition: all 0.5s;
+  }
+
+  .active, a:hover{
+    color: $lightgold;
+  }
+}
+
+
+/************
+Layout
+************/
+
+.wrapper{
+    font-family: 'Lato', sans-serif;
+    color: $darkbrown;
+    font-size: 1.5em;
+}
+
+.sidebar, .content-wrapper{
+    width: 50%;
+    // padding: 5% 3%;
+}
+
+.sidebar{
+    // background-image: url("https://photos-1.dropbox.com/t/2/AACvhuR1-r1Iuyv-9YMst_cdXimB633ixqPkamxG7hFALQ/12/25093909/jpeg/32x32/1/1439352000/0/2/2015-05-25%2004.12.52.jpg/CJXO-wsgASACIAMgBCAFIAYgBygCKAc/g-CwGbBQiBacxyiU7aR7LPmyhNYZ0Ju8EmkLA1D8xWc?size=1600x1200&size_mode=2");
+    // background-size: cover;
+    // background-position: 0 60%;
+    position: fixed;
+    height: 100%;
+    padding: 5% 3%;
+}
+
+.content-wrapper{
+    min-height: 100vh;
+    margin-left: 50%;
+    background-color: $lightgold;
+
+    img{
+        max-width: 100%;
+      }
+}
+
+  .content{
+      width: 90%;
+      margin: auto;
+
+      img{
+        max-width: 100%;
+      }
+  }
